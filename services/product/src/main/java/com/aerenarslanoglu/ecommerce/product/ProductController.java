@@ -3,13 +3,11 @@ package com.aerenarslanoglu.ecommerce.product;
 import com.aerenarslanoglu.ecommerce.product.requests.ProductPurchaseRequest;
 import com.aerenarslanoglu.ecommerce.product.requests.ProductRequest;
 import com.aerenarslanoglu.ecommerce.product.responses.ProductPurchaseResponse;
+import com.aerenarslanoglu.ecommerce.product.responses.ProductResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +29,12 @@ public class ProductController {
             @RequestBody List<ProductPurchaseRequest> request
     ){
         return ResponseEntity.ok(service.purchaseProducts(request));
+    }
+
+    @GetMapping("/{product-id}")
+    public ResponseEntity<ProductResponse> findById(
+            @PathVariable @Valid Integer productId
+    ){
+        return ResponseEntity.ok(service.findById(productId));
     }
 }
