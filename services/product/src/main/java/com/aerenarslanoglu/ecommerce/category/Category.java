@@ -1,5 +1,6 @@
-package com.aerenarslanoglu.ecommerce.product;
+package com.aerenarslanoglu.ecommerce.category;
 
+import com.aerenarslanoglu.ecommerce.product.Product;
 import jakarta.persistence.*;
 import lombok.*;
 

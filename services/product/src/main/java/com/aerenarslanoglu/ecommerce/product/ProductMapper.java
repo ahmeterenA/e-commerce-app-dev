@@ -1,6 +1,8 @@
 package com.aerenarslanoglu.ecommerce.product;
 
+import com.aerenarslanoglu.ecommerce.category.Category;
 import com.aerenarslanoglu.ecommerce.product.requests.ProductRequest;
+import com.aerenarslanoglu.ecommerce.product.responses.ProductPurchaseResponse;
 import com.aerenarslanoglu.ecommerce.product.responses.ProductResponse;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,9 @@ public class ProductMapper {
                 product.getDescription(),
                 product.getAvailableQuantity(),
                 product.getPrice(),
-                product.getCategory().getId()
+                product.getCategory().getId(),
+                product.getCategory().getName(),
+                product.getCategory().getDescription()
         );
     }
 
@@ -30,5 +34,15 @@ public class ProductMapper {
                                 .build()
                 )
                 .build();
+    }
+
+    public ProductPurchaseResponse toProductPurchaseResponse(Product product, double quantity) {
+        return new ProductPurchaseResponse(
+                product.getId(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                quantity
+        );
     }
 }
