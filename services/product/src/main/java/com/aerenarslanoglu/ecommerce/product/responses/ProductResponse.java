@@ -16,6 +16,8 @@ public record ProductResponse(
          @Positive(message = "price should be positive number")
          BigDecimal price,
          @NotNull(message = "Product category is required")
-         Integer categoryId
+         Integer categoryId,
+         String categoryName,
+         String categoryDescription
 ) {
 }

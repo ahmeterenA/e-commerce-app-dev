@@ -37,4 +37,9 @@ public class ProductController {
     ){
         return ResponseEntity.ok(service.findById(productId));
     }
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> findAllProducts(){
+        return ResponseEntity.ok(service.findAll());
+    }
 }
