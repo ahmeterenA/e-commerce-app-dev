@@ -1,11 +1,5 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/order
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: ahmet
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  application:
+    name: order-service
+  config:
+    import: optional:configserver:http://localhost:8888
